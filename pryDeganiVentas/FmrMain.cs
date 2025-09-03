@@ -11,5 +11,17 @@ namespace pryDeganiVentas
         {
 
         }
+
+        private void lstProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstProductos.Text != " ")
+            {
+                dudCantidad.Enabled = true;    
+            }
+            else 
+            {
+                dudCantidad.Enabled = false;
+            }
+        }
     }
 }

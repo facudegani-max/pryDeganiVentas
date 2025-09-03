@@ -32,10 +32,10 @@
             lblCantidad = new Label();
             lblPrecio = new Label();
             lblFecha = new Label();
-            date1 = new DateTimePicker();
-            Lista1 = new ComboBox();
-            maskedTextBox1 = new MaskedTextBox();
-            domainUpDown1 = new DomainUpDown();
+            dtpFecha = new DateTimePicker();
+            lstProductos = new ComboBox();
+            txtPrecio = new MaskedTextBox();
+            dudCantidad = new DomainUpDown();
             btnSalir = new Button();
             btnCarga = new Button();
             SuspendLayout();
@@ -43,7 +43,7 @@
             // lblProducto
             // 
             lblProducto.AutoSize = true;
-            lblProducto.Location = new Point(120, 143);
+            lblProducto.Location = new Point(50, 92);
             lblProducto.Name = "lblProducto";
             lblProducto.Size = new Size(56, 15);
             lblProducto.TabIndex = 0;
@@ -52,78 +52,74 @@
             // lblCantidad
             // 
             lblCantidad.AutoSize = true;
-            lblCantidad.Location = new Point(121, 210);
+            lblCantidad.Location = new Point(51, 159);
             lblCantidad.Name = "lblCantidad";
             lblCantidad.Size = new Size(55, 15);
             lblCantidad.TabIndex = 5;
             lblCantidad.Text = "Cantidad";
-            lblCantidad.Click += this.label2_Click;
             // 
             // lblPrecio
             // 
             lblPrecio.AutoSize = true;
-            lblPrecio.Location = new Point(128, 264);
+            lblPrecio.Location = new Point(58, 213);
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(40, 15);
             lblPrecio.TabIndex = 6;
             lblPrecio.Text = "Precio";
-            lblPrecio.Click += this.label3_Click;
             // 
             // lblFecha
             // 
             lblFecha.AutoSize = true;
-            lblFecha.Location = new Point(129, 84);
+            lblFecha.Location = new Point(59, 33);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(38, 15);
             lblFecha.TabIndex = 7;
             lblFecha.Text = "Fecha";
-            lblFecha.Click += this.label4_Click;
             // 
-            // date1
+            // dtpFecha
             // 
-            date1.Location = new Point(227, 78);
-            date1.Name = "date1";
-            date1.Size = new Size(200, 23);
-            date1.TabIndex = 8;
-            date1.ValueChanged += this.date1_ValueChanged;
+            dtpFecha.Location = new Point(157, 27);
+            dtpFecha.Name = "dtpFecha";
+            dtpFecha.Size = new Size(200, 23);
+            dtpFecha.TabIndex = 8;
             // 
-            // Lista1
+            // lstProductos
             // 
-            Lista1.FormattingEnabled = true;
-            Lista1.Location = new Point(227, 140);
-            Lista1.Name = "Lista1";
-            Lista1.Size = new Size(121, 23);
-            Lista1.TabIndex = 9;
+            lstProductos.FormattingEnabled = true;
+            lstProductos.Location = new Point(157, 89);
+            lstProductos.Name = "lstProductos";
+            lstProductos.Size = new Size(168, 23);
+            lstProductos.TabIndex = 9;
+            lstProductos.SelectedIndexChanged += lstProductos_SelectedIndexChanged;
             // 
-            // maskedTextBox1
+            // txtPrecio
             // 
-            maskedTextBox1.Location = new Point(227, 261);
-            maskedTextBox1.Mask = "99999";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(100, 23);
-            maskedTextBox1.TabIndex = 10;
-            maskedTextBox1.ValidatingType = typeof(int);
+            txtPrecio.Location = new Point(157, 210);
+            txtPrecio.Mask = "99999";
+            txtPrecio.Name = "txtPrecio";
+            txtPrecio.Size = new Size(100, 23);
+            txtPrecio.TabIndex = 10;
+            txtPrecio.ValidatingType = typeof(int);
             // 
-            // domainUpDown1
+            // dudCantidad
             // 
-            domainUpDown1.Location = new Point(227, 208);
-            domainUpDown1.Name = "domainUpDown1";
-            domainUpDown1.Size = new Size(120, 23);
-            domainUpDown1.TabIndex = 11;
+            dudCantidad.Location = new Point(157, 157);
+            dudCantidad.Name = "dudCantidad";
+            dudCantidad.Size = new Size(120, 23);
+            dudCantidad.TabIndex = 11;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(256, 327);
+            btnSalir.Location = new Point(58, 274);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(92, 40);
             btnSalir.TabIndex = 12;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
-            btnSalir.Click += this.btnSalir_Click;
             // 
             // btnCarga
             // 
-            btnCarga.Location = new Point(120, 327);
+            btnCarga.Location = new Point(178, 274);
             btnCarga.Name = "btnCarga";
             btnCarga.Size = new Size(90, 40);
             btnCarga.TabIndex = 13;
@@ -134,13 +130,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(503, 445);
+            ClientSize = new Size(391, 343);
             Controls.Add(btnCarga);
             Controls.Add(btnSalir);
-            Controls.Add(domainUpDown1);
-            Controls.Add(maskedTextBox1);
-            Controls.Add(Lista1);
-            Controls.Add(date1);
+            Controls.Add(dudCantidad);
+            Controls.Add(txtPrecio);
+            Controls.Add(lstProductos);
+            Controls.Add(dtpFecha);
             Controls.Add(lblProducto);
             Controls.Add(lblFecha);
             Controls.Add(lblCantidad);
@@ -158,10 +154,10 @@
         private Label lblCantidad;
         private Label lblPrecio;
         private Label lblFecha;
-        private DateTimePicker date1;
-        private ComboBox Lista1;
-        private MaskedTextBox maskedTextBox1;
-        private DomainUpDown domainUpDown1;
+        private DateTimePicker dtpFecha;
+        private ComboBox lstProductos;
+        private MaskedTextBox txtPrecio;
+        private DomainUpDown dudCantidad;
         private Button btnSalir;
         private Button btnCarga;
     }
